@@ -8,8 +8,15 @@
 // Answer: 233168
 
 #include <iostream>
+#include <ctime>
+#include <iomanip>
 
 int main() {
+	// timer
+	std::clock_t start;
+	long double duration;
+	start = std::clock();
+
 	int roof = 1000;
 	int sum = 0;
 
@@ -18,6 +25,10 @@ int main() {
 			sum += i;
 		}
 	}
+	// retrieve time
+	duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+	std::cout << "Time taken: " << std::setprecision(10) << std::fixed << duration << std::endl;
+
 	std::cout << "Answer: " << sum << std::endl;
 	std::cin.get();
 }
